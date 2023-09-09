@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8uuvubxpnmhj"]
+
+[ext_resource type="Theme" uid="uid://ch5yhyluy1iri" path="res://ascension.theme" id="1_bvfwd"]
+
+[node name="Title" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_bvfwd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme = ExtResource("1_bvfwd")
+
+[node name="Title_Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bvfwd")
+text = "Ascension Game Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Play_Button" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bvfwd")
+text = "PLAY"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bvfwd")
+text = "     Godot Wild Jam #61: ASCENSION
+   Prototype by @JEBKAM & @STEPHEN"
+fit_content = true
