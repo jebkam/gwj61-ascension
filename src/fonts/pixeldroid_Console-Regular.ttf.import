@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://d0gkj7i6opup6"
-path="res://.godot/imported/pixeldroid_Console-Regular.ttf-aa251cd3ad7ced134f2ca1282ab0b884.fontdata"
+path="res://.godot/imported/pixeldroid_Console-Regular.ttf-e7c7ca45415d8791c1f296346a900df9.fontdata"
 
 [deps]
 
-source_file="res://fonts/pixeldroid_Console-Regular.ttf"
-dest_files=["res://.godot/imported/pixeldroid_Console-Regular.ttf-aa251cd3ad7ced134f2ca1282ab0b884.fontdata"]
+source_file="res://src/fonts/pixeldroid_Console-Regular.ttf"
+dest_files=["res://.godot/imported/pixeldroid_Console-Regular.ttf-e7c7ca45415d8791c1f296346a900df9.fontdata"]
 
 [params]
 

@@ -1,0 +1,66 @@
+[gd_scene load_steps=10 format=3 uid="uid://bcwtdngkqpobp"]
+
+[ext_resource type="Script" path="res://nutrient/nutrient.gd" id="1_elpov"]
+[ext_resource type="Texture2D" uid="uid://dar26247uo7ui" path="res://particle.png" id="2_wfpuv"]
+[ext_resource type="Texture2D" uid="uid://crfqcgn2qifrr" path="res://nutrient/nutrient.png" id="2_wxjaw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0pjaf"]
+size = Vector2(8, 8)
+
+[sub_resource type="Curve" id="Curve_75wsj"]
+min_value = -1.0
+_data = [Vector2(0, -0.5), 0.0, 0.0, 0, 0, Vector2(1, 0.5), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_w5htd"]
+curve = SubResource("Curve_75wsj")
+
+[sub_resource type="Curve" id="Curve_l28f2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_felsk"]
+curve = SubResource("Curve_l28f2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4b2ah"]
+emission_shape = 2
+emission_sphere_radius = 12.0
+particle_flag_disable_z = true
+direction = Vector3(0, 0, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = -1.0
+initial_velocity_max = 1.0
+orbit_velocity_min = -1.0
+orbit_velocity_max = 1.0
+orbit_velocity_curve = SubResource("CurveTexture_w5htd")
+scale_min = 4.0
+scale_max = 6.0
+scale_curve = SubResource("CurveTexture_felsk")
+color = Color(0.537255, 0.588235, 0.258824, 1)
+hue_variation_min = -0.3
+hue_variation_max = 0.3
+turbulence_noise_strength = 5.72
+turbulence_noise_scale = 5.0
+
+[node name="Spirit" type="Area2D"]
+scale = Vector2(6, 6)
+script = ExtResource("1_elpov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_wxjaw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0pjaf")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_4b2ah")
+texture = ExtResource("2_wfpuv")
+lifetime = 4.0
+explosiveness = 0.4
+randomness = 0.4
+fixed_fps = 60

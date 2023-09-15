@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://r0edumhim0tf"]
+
+[ext_resource type="Script" path="res://hazard/hazard.gd" id="1_7llxu"]
+[ext_resource type="Texture2D" uid="uid://bbk4fr2814lsg" path="res://hazard/hazard.png" id="1_vm58u"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gq8s4"]
+radius = 12.0
+
+[node name="Hazard" type="Area2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_7llxu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gq8s4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_vm58u")
