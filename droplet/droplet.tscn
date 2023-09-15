@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1w6fhdsr64sx"]
+[gd_scene load_steps=13 format=3 uid="uid://d1w6fhdsr64sx"]
 
 [ext_resource type="Script" path="res://droplet/droplet.gd" id="1_i8xa1"]
 [ext_resource type="Texture2D" uid="uid://bh555geyk60cr" path="res://droplet/droplet.png" id="2_0l534"]
 [ext_resource type="Texture2D" uid="uid://dhfyek54kb7bj" path="res://algae/algae.png" id="3_c8vcj"]
 [ext_resource type="Script" path="res://algae/algae.gd" id="4_eqf77"]
 [ext_resource type="Texture2D" uid="uid://dar26247uo7ui" path="res://particle.png" id="5_n8nu7"]
+[ext_resource type="AudioStream" uid="uid://b215xiuvubirp" path="res://src/audio/ascend.wav" id="6_hthv5"]
+[ext_resource type="AudioStream" uid="uid://dhjn5gu8i3uff" path="res://src/audio/hurt.wav" id="7_41lc3"]
+[ext_resource type="AudioStream" uid="uid://copoicemt4j00" path="res://src/audio/pickup.wav" id="8_ikees"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qx3q6"]
 radius = 16.0
@@ -57,3 +60,12 @@ texture_filter = 1
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_c8vcj")
 script = ExtResource("4_eqf77")
+
+[node name="Ascension_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_hthv5")
+
+[node name="Hurt_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_41lc3")
+
+[node name="Pickup_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_ikees")

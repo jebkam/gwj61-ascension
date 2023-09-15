@@ -6,5 +6,7 @@ func _ready():
 
 func _on_body_entered(body):
 	if body.is_in_group("droplets"):
+		body.hurt_sound.play()
+		await(body.hurt_sound.finished)
 		body.pop()
 

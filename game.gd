@@ -4,17 +4,17 @@ extends Node2D
 @export var nutrient_pts : int = 5
 @export var algae_growth_pts : int = 2
 
-
 @onready var spawner := $Spawner
 @onready var score_label := $UI/Margin/VBox/HBox/Score_Label
-@onready var ascension_label := $UI/Margin/VBox/HBox/Ascension_Label
 @onready var game_timer := $Game_Timer
 @onready var time_left_label := $UI/Margin/VBox/HBox/Time_Left_Label
-
-
 @onready var header_label := $UI/Margin/VBox/Header_Box/Header_Label
 @onready var replay_button := $UI/Margin/VBox/Replay_Button
 @onready var quit_button := $UI/Margin/VBox/Quit_Button
+@onready var button_sound := $UI/Button_Sound
+@onready var press_sound := $Press_Sound
+@onready var bgm := $BGM
+@onready var press_scene := preload("res://press.tscn")
 
 var score = 0
 var scale_factor = Vector2(1, 1)
@@ -41,11 +41,17 @@ func _ready():
 	header_label.visible = false
 	replay_button.visible = false
 	quit_button.visible = false
+	bgm.play()
+
 	
 func _on_replay_button_pressed():
+	button_sound.play()
+	await(button_sound.finished)
 	get_tree().reload_current_scene()
 	
 func _on_quit_button_pressed():
+	button_sound.play()
+	await(button_sound.finished)
 	get_tree().quit()
 
 func _input(event):
@@ -54,7 +60,13 @@ func _input(event):
 			event.global_position.x * scale_factor.x,
 			event.global_position.y * scale_factor.y
 		)
+		
 		if event.pressed:
+			var press = press_scene.instantiate()
+			press.position = transformed_position
+			add_child(press)
+			press_sound.play()
+			await(press_sound.finished)
 			for droplet in get_tree().get_nodes_in_group("droplets"):
 				droplet.apply_movement(transformed_position)
 
@@ -65,10 +77,9 @@ func _process(delta):
 	score = calculate_score()
 	score_label.text = "Score: " + str(score)
 
-	ascension_label.text = " Ascent: " + str(droplets_ascended)
 	if not game_over:
 		time_left = game_timer.time_left  # Update time_left based on the actual timer
-		time_left_label.text = str(int(time_left))
+		time_left_label.text = "Time: " + str(int(time_left))
 		if get_tree().get_nodes_in_group("droplets").size() == 0:
 			spawner.spawn_droplet()
 

@@ -10,6 +10,7 @@ signal apply_time(extra_time)
 @onready var nutrient_scene := preload("res://nutrient/nutrient.tscn")
 @onready var droplet_scene := preload("res://droplet/droplet.tscn")
 @onready var hazard_scene := preload("res://hazard/hazard.tscn")
+@onready var ascension_sound := $Ascension_Sound
 
 const SCREEN_WIDTH = 1920
 const SCREEN_HEIGHT = 1920

@@ -43,7 +43,7 @@ hue_variation_max = 0.3
 turbulence_noise_strength = 5.72
 turbulence_noise_scale = 5.0
 
-[node name="Spirit" type="Area2D"]
+[node name="Nutrient" type="Area2D"]
 scale = Vector2(6, 6)
 script = ExtResource("1_elpov")
 

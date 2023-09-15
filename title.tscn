@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c8uuvubxpnmhj"]
+[gd_scene load_steps=5 format=3 uid="uid://c8uuvubxpnmhj"]
 
 [ext_resource type="Theme" uid="uid://ch5yhyluy1iri" path="res://ascension.theme" id="1_bvfwd"]
 [ext_resource type="Script" path="res://title.gd" id="1_l8xco"]
 [ext_resource type="Texture2D" uid="uid://b41ro7fkccd2p" path="res://bg.png" id="1_p223y"]
+[ext_resource type="AudioStream" uid="uid://bxutjrqpyt5no" path="res://src/audio/select.wav" id="4_ch4ku"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -58,3 +59,6 @@ theme = ExtResource("1_bvfwd")
 text = "     Godot Wild Jam #61: ASCENSION"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_ch4ku")

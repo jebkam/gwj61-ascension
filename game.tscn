@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkm2nwc53lhad"]
+[gd_scene load_steps=10 format=3 uid="uid://dkm2nwc53lhad"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_830so"]
 [ext_resource type="Texture2D" uid="uid://b41ro7fkccd2p" path="res://bg.png" id="2_3sv2h"]
 [ext_resource type="PackedScene" uid="uid://r0edumhim0tf" path="res://hazard/hazard.tscn" id="3_ov742"]
 [ext_resource type="Script" path="res://spawner/spawner.gd" id="4_fnmrx"]
+[ext_resource type="AudioStream" uid="uid://b215xiuvubirp" path="res://src/audio/ascend.wav" id="5_u4vbh"]
+[ext_resource type="AudioStream" uid="uid://bxutjrqpyt5no" path="res://src/audio/select.wav" id="7_fwmt3"]
 [ext_resource type="Theme" uid="uid://ch5yhyluy1iri" path="res://ascension.theme" id="7_l37vl"]
+[ext_resource type="AudioStream" uid="uid://57crfqblcq3" path="res://src/audio/bgm.wav" id="8_iefik"]
+[ext_resource type="AudioStream" uid="uid://bml1f1amrg4us" path="res://src/audio/press.wav" id="9_g4fsy"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_830so")
@@ -51,6 +55,9 @@ hazard_wait_range = Vector2(50, 90)
 
 [node name="Hazard_Timer" type="Timer" parent="Spawner"]
 
+[node name="Ascension_Sound" type="AudioStreamPlayer2D" parent="Spawner"]
+stream = ExtResource("5_u4vbh")
+
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
@@ -65,8 +72,8 @@ theme = ExtResource("7_l37vl")
 
 [node name="Margin" type="MarginContainer" parent="UI"]
 layout_mode = 0
-offset_right = 660.0
-offset_bottom = 679.0
+offset_right = 640.0
+offset_bottom = 647.0
 theme = ExtResource("7_l37vl")
 
 [node name="VBox" type="VBoxContainer" parent="UI/Margin"]
@@ -100,7 +107,6 @@ text = "QUIT"
 [node name="HBox" type="HBoxContainer" parent="UI/Margin/VBox"]
 layout_mode = 2
 theme = ExtResource("7_l37vl")
-theme_override_constants/separation = 80
 alignment = 1
 
 [node name="Score_Label" type="Label" parent="UI/Margin/VBox/HBox"]
@@ -115,13 +121,15 @@ theme = ExtResource("7_l37vl")
 theme_override_font_sizes/font_size = 64
 text = "60"
 
-[node name="Ascension_Label" type="Label" parent="UI/Margin/VBox/HBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-theme_override_font_sizes/font_size = 64
-text = "Ascent: 0"
-horizontal_alignment = 2
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="UI"]
+stream = ExtResource("7_fwmt3")
 
 [node name="Game_Timer" type="Timer" parent="."]
 wait_time = 66.0
 one_shot = true
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_iefik")
+
+[node name="Press_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_g4fsy")

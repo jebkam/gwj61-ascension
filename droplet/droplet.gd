@@ -9,6 +9,11 @@ signal droplet_ascended
 @onready var particles := $GPUParticles2D
 @onready var algae := $Algae
 
+@onready var ascension_sound := $Ascension_Sound
+@onready var hurt_sound := $Hurt_Sound
+@onready var pickup_sound := $Pickup_Sound
+
+
 var gravity = 60
 var movement_force = -120
 var push_force = 60
@@ -28,7 +33,6 @@ func _process(delta):
 		global_position.x = 0
 	elif global_position.x < 0:
 		global_position.x = screen_size.x
-
 
 	if global_position.y < 0 and not is_algae_fully_grown:
 		velocity.y += -movement_force
@@ -59,7 +63,9 @@ func pop():
 	queue_free()
 	
 func ascension():
-	velocity.y += movement_force 
+	velocity.y += movement_force 	
+	ascension_sound.play()
+	await(ascension_sound.finished)
 	if global_position.y < 0:
 		emit_signal("droplet_ascended")
 		pop()

@@ -9,5 +9,7 @@ func _ready():
 func _on_body_entered(body):
 	if body.is_in_group("droplets"):
 		body.algae.grow()
+		body.pickup_sound.play()
+		await(body.pickup_sound.finished)
 		emit_signal("nutrient_collected")
 		queue_free()
