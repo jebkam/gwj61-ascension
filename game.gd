@@ -15,6 +15,7 @@ extends Node2D
 @onready var press_sound := $Press_Sound
 @onready var bgm := $BGM
 @onready var press_scene := preload("res://press.tscn")
+@onready var title_scene := preload("res://title.tscn")
 
 var score = 0
 var scale_factor = Vector2(1, 1)
@@ -52,7 +53,7 @@ func _on_replay_button_pressed():
 func _on_quit_button_pressed():
 	button_sound.play()
 	await(button_sound.finished)
-	get_tree().quit()
+	get_tree().change_scene_to_packed(title_scene)
 
 func _input(event):
 	if event is InputEventScreenTouch or event is InputEventMouseButton:

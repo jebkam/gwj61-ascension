@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="GWJ-61 Ascension"
-run/main_scene="res://game.tscn"
+run/main_scene="res://title.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 boot_splash/bg_color=Color(0.0705882, 0.133333, 0.247059, 1)
 boot_splash/image="res://ascension.png"
