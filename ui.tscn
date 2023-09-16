@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://basbvf4nk2x57"]
+
+[ext_resource type="Theme" uid="uid://ch5yhyluy1iri" path="res://ascension.theme" id="1_wrf1u"]
+[ext_resource type="Script" path="res://ui.gd" id="2_8hggc"]
+[ext_resource type="AudioStream" uid="uid://bxutjrqpyt5no" path="res://src/audio/select.wav" id="2_wd232"]
+
+[node name="UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_wrf1u")
+script = ExtResource("2_8hggc")
+metadata/_edit_use_anchors_ = true
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+theme_override_constants/separation = 120
+alignment = 2
+
+[node name="Header_Box" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Header_Label" type="Label" parent="Margin/VBox/Header_Box"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 128
+text = "Game Over"
+
+[node name="Button_Box" type="VBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Replay_Button" type="Button" parent="Margin/VBox/Button_Box"]
+layout_mode = 2
+text = "REPLAY"
+
+[node name="Quit_Button" type="Button" parent="Margin/VBox/Button_Box"]
+layout_mode = 2
+text = "QUIT"
+
+[node name="HUD_Box" type="HBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="Time_Left_Label" type="Label" parent="Margin/VBox/HUD_Box"]
+layout_mode = 2
+text = "Time: 00"
+
+[node name="Score_Label" type="Label" parent="Margin/VBox/HUD_Box"]
+layout_mode = 2
+text = "Score: 00000"
+
+[node name="Button_Sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_wd232")

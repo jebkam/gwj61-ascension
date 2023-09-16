@@ -1,7 +1,7 @@
 extends Control
 
 @onready var button := $MarginContainer/VBoxContainer/Play_Button
-@onready var game_scene := preload("res://game.tscn")
+@onready var game_scene := preload("res://main.tscn")
 @onready var button_sound := $Button_Sound
 
 func _ready() -> void:

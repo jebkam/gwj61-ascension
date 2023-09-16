@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bh555geyk60cr" path="res://droplet/droplet.png" id="2_0l534"]
 [ext_resource type="Texture2D" uid="uid://dhfyek54kb7bj" path="res://algae/algae.png" id="3_c8vcj"]
 [ext_resource type="Script" path="res://algae/algae.gd" id="4_eqf77"]
-[ext_resource type="Texture2D" uid="uid://dar26247uo7ui" path="res://particle.png" id="5_n8nu7"]
+[ext_resource type="Texture2D" uid="uid://dar26247uo7ui" path="res://press/particle.png" id="5_n8nu7"]
 [ext_resource type="AudioStream" uid="uid://b215xiuvubirp" path="res://src/audio/ascend.wav" id="6_hthv5"]
 [ext_resource type="AudioStream" uid="uid://dhjn5gu8i3uff" path="res://src/audio/hurt.wav" id="7_41lc3"]
 [ext_resource type="AudioStream" uid="uid://copoicemt4j00" path="res://src/audio/pickup.wav" id="8_ikees"]
@@ -37,8 +37,6 @@ scale_max = 3.0
 
 [node name="Droplet" type="CharacterBody2D"]
 texture_filter = 1
-position = Vector2(960, 560)
-scale = Vector2(3, 3)
 script = ExtResource("1_i8xa1")
 
 [node name="Collider" type="CollisionShape2D" parent="."]

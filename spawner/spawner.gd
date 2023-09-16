@@ -10,18 +10,18 @@ signal apply_time(extra_time)
 @onready var nutrient_scene := preload("res://nutrient/nutrient.tscn")
 @onready var droplet_scene := preload("res://droplet/droplet.tscn")
 @onready var hazard_scene := preload("res://hazard/hazard.tscn")
-@onready var ascension_sound := $Ascension_Sound
 
-const SCREEN_WIDTH = 1920
-const SCREEN_HEIGHT = 1920
+
+const SCREEN_WIDTH = 640
+const SCREEN_HEIGHT = 640
 
 # Minimum and maximum time to spawn
 
-@export var nutrient_wait_range = Vector2(1.0, 3.0)
-@export var droplet_wait_range = Vector2(10.0, 30.0)
-@export var hazard_wait_range = Vector2(30.0, 60.0)
+@export var nutrient_wait_range = Vector2(3.0, 5.0)
+@export var droplet_wait_range = Vector2(25.0, 60.0)
+@export var hazard_wait_range = Vector2(45.0, 90.0)
 @export var nutrient_extra_time = 3
-@export var ascension_extra_time = 10
+@export var ascension_extra_time = 30
 
 var nutrients_collected : int
 var droplets_ascended : int
@@ -62,7 +62,7 @@ func spawn_nutrient():
 	# Your logic to spawn the nutrient goes here
 	var nutrient = nutrient_scene.instantiate()
 	# Get screen dimensions
-	var screen_size = Vector2(SCREEN_WIDTH, SCREEN_HEIGHT)
+	var screen_size = Vector2(640, 640)
 	# Generate random coordinates within the screen dimensions
 	var random_x = randf_range(0, screen_size.x)
 	var random_y = randf_range(0, screen_size.y)

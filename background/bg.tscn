@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6gvngj81jf"]
+
+[ext_resource type="Texture2D" uid="uid://b41ro7fkccd2p" path="res://background/bg.png" id="1_f01k7"]
+[ext_resource type="AudioStream" uid="uid://57crfqblcq3" path="res://src/audio/bgm.wav" id="2_8gxd6"]
+[ext_resource type="PackedScene" uid="uid://r0edumhim0tf" path="res://hazard/hazard.tscn" id="2_chme2"]
+
+[node name="BG" type="Sprite2D"]
+position = Vector2(320, 320)
+texture = ExtResource("1_f01k7")
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_8gxd6")
+
+[node name="Hazard_1" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(-280, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_2" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(-216, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_3" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(-152, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_4" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(-88, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_5" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(-24, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_6" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(40, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_7" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(104, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_8" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(168, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_9" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(232, 340)
+scale = Vector2(2, 2)
+
+[node name="Hazard_10" parent="." instance=ExtResource("2_chme2")]
+position = Vector2(296, 340)
+scale = Vector2(2, 2)

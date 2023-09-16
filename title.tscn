@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://ch5yhyluy1iri" path="res://ascension.theme" id="1_bvfwd"]
 [ext_resource type="Script" path="res://title.gd" id="1_l8xco"]
-[ext_resource type="Texture2D" uid="uid://b41ro7fkccd2p" path="res://bg.png" id="1_p223y"]
+[ext_resource type="Texture2D" uid="uid://b41ro7fkccd2p" path="res://background/bg.png" id="2_y120p"]
 [ext_resource type="AudioStream" uid="uid://bxutjrqpyt5no" path="res://src/audio/select.wav" id="4_ch4ku"]
 
 [node name="Title" type="Control"]
@@ -17,27 +17,30 @@ script = ExtResource("1_l8xco")
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1920.0
-texture = ExtResource("1_p223y")
+offset_right = 640.0
+offset_bottom = 640.0
+texture = ExtResource("2_y120p")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1920.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme = ExtResource("1_bvfwd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme = ExtResource("1_bvfwd")
+alignment = 1
 
 [node name="Title_Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("1_bvfwd")
-theme_override_font_sizes/font_size = 256
+theme_override_font_sizes/font_size = 128
 text = "Microcosm"
 horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Play_Button" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

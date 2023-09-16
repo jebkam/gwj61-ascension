@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://bcwtdngkqpobp"]
 
 [ext_resource type="Script" path="res://nutrient/nutrient.gd" id="1_elpov"]
-[ext_resource type="Texture2D" uid="uid://dar26247uo7ui" path="res://particle.png" id="2_wfpuv"]
+[ext_resource type="Texture2D" uid="uid://dar26247uo7ui" path="res://press/particle.png" id="2_wfpuv"]
 [ext_resource type="Texture2D" uid="uid://crfqcgn2qifrr" path="res://nutrient/nutrient.png" id="2_wxjaw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0pjaf"]
@@ -34,8 +34,7 @@ initial_velocity_max = 1.0
 orbit_velocity_min = -1.0
 orbit_velocity_max = 1.0
 orbit_velocity_curve = SubResource("CurveTexture_w5htd")
-scale_min = 4.0
-scale_max = 6.0
+scale_max = 2.0
 scale_curve = SubResource("CurveTexture_felsk")
 color = Color(0.537255, 0.588235, 0.258824, 1)
 hue_variation_min = -0.3
@@ -44,7 +43,7 @@ turbulence_noise_strength = 5.72
 turbulence_noise_scale = 5.0
 
 [node name="Nutrient" type="Area2D"]
-scale = Vector2(6, 6)
+scale = Vector2(2, 2)
 script = ExtResource("1_elpov")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -56,7 +55,6 @@ shape = SubResource("RectangleShape2D_0pjaf")
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 texture_filter = 1
-scale = Vector2(2, 2)
 amount = 12
 process_material = SubResource("ParticleProcessMaterial_4b2ah")
 texture = ExtResource("2_wfpuv")

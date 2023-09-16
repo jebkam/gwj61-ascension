@@ -1,9 +1,6 @@
 # Droplet.gd
 extends CharacterBody2D
 
-const SCREEN_WIDTH = 1920
-const SCREEN_HEIGHT = 1920
-
 signal droplet_ascended
 
 @onready var particles := $GPUParticles2D
@@ -28,7 +25,7 @@ func _process(delta):
 	move_and_slide()
 
 	# Screen wrapping
-	var screen_size = Vector2(SCREEN_WIDTH, SCREEN_HEIGHT)
+	var screen_size = Vector2(640, 640)
 	if global_position.x > screen_size.x:
 		global_position.x = 0
 	elif global_position.x < 0:

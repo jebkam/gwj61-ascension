@@ -1,135 +1,24 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkm2nwc53lhad"]
+[gd_scene load_steps=6 format=3 uid="uid://b5gv6md0xkmpt"]
 
-[ext_resource type="Script" path="res://game.gd" id="1_830so"]
-[ext_resource type="Texture2D" uid="uid://b41ro7fkccd2p" path="res://bg.png" id="2_3sv2h"]
-[ext_resource type="PackedScene" uid="uid://r0edumhim0tf" path="res://hazard/hazard.tscn" id="3_ov742"]
-[ext_resource type="Script" path="res://spawner/spawner.gd" id="4_fnmrx"]
-[ext_resource type="AudioStream" uid="uid://b215xiuvubirp" path="res://src/audio/ascend.wav" id="5_u4vbh"]
-[ext_resource type="AudioStream" uid="uid://bxutjrqpyt5no" path="res://src/audio/select.wav" id="7_fwmt3"]
-[ext_resource type="Theme" uid="uid://ch5yhyluy1iri" path="res://ascension.theme" id="7_l37vl"]
-[ext_resource type="AudioStream" uid="uid://57crfqblcq3" path="res://src/audio/bgm.wav" id="8_iefik"]
-[ext_resource type="AudioStream" uid="uid://bml1f1amrg4us" path="res://src/audio/press.wav" id="9_g4fsy"]
+[ext_resource type="Script" path="res://game.gd" id="1_gpmmo"]
+[ext_resource type="PackedScene" uid="uid://b6gvngj81jf" path="res://background/bg.tscn" id="2_cm2l3"]
+[ext_resource type="PackedScene" uid="uid://blnlfyhwh3av6" path="res://spawner/spawner.tscn" id="3_aj16s"]
+[ext_resource type="AudioStream" uid="uid://bml1f1amrg4us" path="res://src/audio/press.wav" id="4_6c8no"]
+[ext_resource type="PackedScene" uid="uid://basbvf4nk2x57" path="res://ui.tscn" id="5_egdpn"]
 
 [node name="Game" type="Node2D"]
-script = ExtResource("1_830so")
+script = ExtResource("1_gpmmo")
 
-[node name="BG" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(960, 960)
-scale = Vector2(3, 3)
-texture = ExtResource("2_3sv2h")
+[node name="BG" parent="." instance=ExtResource("2_cm2l3")]
 
-[node name="Bottom_Hazard_1" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(-280, 354)
-
-[node name="Bottom_Hazard_2" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(-200, 354)
-
-[node name="Bottom_Hazard_3" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(-120, 354)
-
-[node name="Bottom_Hazard_4" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(-40, 354)
-
-[node name="Bottom_Hazard_5" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(40, 354)
-
-[node name="Bottom_Hazard_6" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(120, 354)
-
-[node name="Bottom_Hazard_7" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(200, 354)
-
-[node name="Bottom_Hazard_8" parent="BG" instance=ExtResource("3_ov742")]
-position = Vector2(280, 354)
-
-[node name="Spawner" type="Node2D" parent="."]
-script = ExtResource("4_fnmrx")
-nutrient_wait_range = Vector2(3, 5)
-droplet_wait_range = Vector2(20, 60)
-hazard_wait_range = Vector2(50, 90)
-
-[node name="Nutrient_Timer" type="Timer" parent="Spawner"]
-
-[node name="Droplet_Timer" type="Timer" parent="Spawner"]
-
-[node name="Hazard_Timer" type="Timer" parent="Spawner"]
-
-[node name="Ascension_Sound" type="AudioStreamPlayer2D" parent="Spawner"]
-stream = ExtResource("5_u4vbh")
-
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 640.0
-offset_bottom = 640.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-theme = ExtResource("7_l37vl")
-
-[node name="Margin" type="MarginContainer" parent="UI"]
-layout_mode = 0
-offset_right = 640.0
-offset_bottom = 647.0
-theme = ExtResource("7_l37vl")
-
-[node name="VBox" type="VBoxContainer" parent="UI/Margin"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-theme_override_constants/separation = 100
-alignment = 2
-
-[node name="Header_Box" type="HBoxContainer" parent="UI/Margin/VBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-alignment = 1
-
-[node name="Header_Label" type="Label" parent="UI/Margin/VBox/Header_Box"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-text = "GAME OVER"
-
-[node name="Replay_Button" type="Button" parent="UI/Margin/VBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-theme_override_font_sizes/font_size = 48
-text = "REPLAY"
-
-[node name="Quit_Button" type="Button" parent="UI/Margin/VBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-theme_override_font_sizes/font_size = 48
-text = "QUIT"
-
-[node name="HBox" type="HBoxContainer" parent="UI/Margin/VBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-alignment = 1
-
-[node name="Score_Label" type="Label" parent="UI/Margin/VBox/HBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-theme_override_font_sizes/font_size = 64
-text = "Score: 0"
-
-[node name="Time_Left_Label" type="Label" parent="UI/Margin/VBox/HBox"]
-layout_mode = 2
-theme = ExtResource("7_l37vl")
-theme_override_font_sizes/font_size = 64
-text = "60"
-
-[node name="Button_Sound" type="AudioStreamPlayer2D" parent="UI"]
-stream = ExtResource("7_fwmt3")
+[node name="Spawner" parent="." instance=ExtResource("3_aj16s")]
 
 [node name="Game_Timer" type="Timer" parent="."]
-wait_time = 66.0
-one_shot = true
-
-[node name="BGM" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("8_iefik")
+wait_time = 5.0
 
 [node name="Press_Sound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("9_g4fsy")
+stream = ExtResource("4_6c8no")
+
+[node name="UI" parent="." instance=ExtResource("5_egdpn")]
+offset_right = 640.0
+offset_bottom = 640.0
